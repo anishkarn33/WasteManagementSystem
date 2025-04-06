@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - EcoWaste Management System</title>
+    <style>
+      /* General Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", "Segoe UI", "Arial", sans-serif;
+      }
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header */
+      header {
+        background: linear-gradient(135deg, #004d40 0%, #00695c 100%);
+        color: #fff;
+        padding: 20px 0;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      }
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+      .logo {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+      .logo span {
+        color: #4caf50;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+      nav ul li {
+        margin: 0 10px;
+      }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 10px 16px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+      nav ul li a.active {
+        background: rgba(26, 188, 156, 0.8);
+        color: white;
+      }
+      nav ul li a:hover {
+        background: rgba(26, 188, 156, 0.6);
+      }
+      
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #1abc9c 0%, #00796b 100%);
+        color: white;
+        text-align: center;
+        padding: 80px 20px;
+        border-radius: 12px;
+        margin-top: 30px;
+        box-shadow: 0 5px 20px rgba(0, 77, 64, 0.2);
+      }
+      .hero h2 {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        letter-spacing: -0.5px;
+      }
+      .hero p {
+        font-size: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+      .hero-buttons {
+        margin-top: 30px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: #fff;
+        color: #004d40;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+      }
+      
+      /* Features Section */
+      .section-title {
+        text-align: center;
+        margin: 60px 0 40px;
+        font-size: 32px;
+        color: #004d40;
+        position: relative;
+      }
+      .section-title:after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: #1abc9c;
+        margin: 15px auto 0;
+        border-radius: 2px;
+      }
+      .features {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+      .feature-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        flex: 1;
+        min-width: 300px;
+        transition: all 0.3s ease;
+        border-top: 4px solid #1abc9c;
+      }
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        background: rgba(26, 188, 156, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: #1abc9c;
+        font-size: 30px;
+      }
+      .feature-card h3 {
+        margin: 15px 0;
+        font-size: 22px;
+        color: #004d40;
+      }
+      .feature-card p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+      }
+      
+      /* Footer */
+      footer {
+        background: linear-gradient(135deg, #004d40 0%, #00352c 100%);
+        color: white;
+        padding: 40px 0 20px;
+        margin-top: 60px;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+      .footer-column {
+        flex: 1;
+        min-width: 200px;
+      }
+      .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        position: relative;
+      }
+      .footer-column h3:after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 3px;
+        background: #1abc9c;
+        margin-top: 8px;
+      }
+      .footer-column ul {
+        list-style: none;
+      }
+      .footer-column ul li {
+        margin-bottom: 10px;
+      }
+      .footer-column ul li a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .footer-column ul li a:hover {
+        color: #1abc9c;
+      }
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+        }
+        nav ul {
+          margin-top: 15px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .hero {
+          padding: 60px 20px;
+        }
+        .hero h2 {
+          font-size: 32px;
+        }
+        .features {
+          flex-direction: column;
+        }
+        .feature-card {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <h1 class="logo">Eco<span>Waste</span> Management</h1>
+          <nav>
+            <ul>
+              <li><a href="/" class="active">Home</a></li>
+              <li><a href="/dashboard?user_id=default_user">Dashboard</a></li>
+              <li><a href="/report">Report Waste</a></li>
+              <li><a href="/stats?user_id=default_user">Statistics</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <div class="container">
+      <main>
+        <section class="hero">
+          <h2>Smart Waste Management Solutions</h2>
+          <p>Efficient, eco-friendly waste management at your fingertips. Join us in creating a cleaner, greener future.</p>
+          <div class="hero-buttons">
+            <a href="/report" class="btn">Report Waste</a>
+            <a href="/learn-more" class="btn btn-outline">Learn More</a>
+          </div>
+        </section>
+        
+        <h2 class="section-title">Our Features</h2>
+        <section class="features">
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Report Waste</h3>
+            <p>Quickly report waste disposal issues in your area. Our smart system ensures timely collection and proper handling.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3>Track Collection</h3>
+            <p>Monitor real-time updates on waste collection schedules and receive notifications when your waste is collected.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Analyze Data</h3>
+            <p>Gain valuable insights into waste management trends and make informed decisions to reduce your environmental footprint.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <ul>
+              <li><a href="/about">Our Mission</a></li>
+              <li><a href="/team">Our Team</a></li>
+              <li><a href="/partners">Partners</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="/services/residential">Residential</a></li>
+              <li><a href="/services/commercial">Commercial</a></li>
+              <li><a href="/services/recycling">Recycling Programs</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 EcoWaste Management System. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Waste Management Dashboard</h2>
+
+<div class="card">
+    <h3>User Summary</h3>
+    <p>User ID: {{ user_id }}</p>
+    <p>Total Waste Reported: {{ stats.total }} kg</p>
+    <p>Total Reports: {{ stats.reports }}</p>
+</div>
+
+<div class="card">
+    <h3>Your Recent Reports</h3>
+    {% if reports %}
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Waste Type</th>
+                <th>Amount (kg)</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+            <tr>
+                <td>{{ report.timestamp }}</td>
+                <td>{{ report.waste_type }}</td>
+                <td>{{ report.amount }}</td>
+                <td>{{ report.location }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No waste reports yet. <a href="/report">Report waste now</a>.</p>
+    {% endif %}
+</div>
+
+<a href="/report" class="btn">Report New Waste</a>
+<a href="/stats?user_id={{ user_id }}" class="btn">View Detailed Statistics</a>
+{% endblock %}

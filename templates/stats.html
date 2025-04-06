@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Waste Statistics</h2>
+
+<div class="card">
+    <h3>Your Contribution</h3>
+    <p>User ID: {{ user_id }}</p>
+    <p>Total Waste Disposed: {{ user_stats.total }} kg</p>
+    <p>Number of Reports: {{ user_stats.reports }}</p>
+    <p>Average per Report: {% if user_stats.reports > 0 %}{{ (user_stats.total / user_stats.reports)|round(2) }}{% else %}0{% endif %} kg</p>
+    <p>Account Created: {{ user_stats.created_at }}</p>
+</div>
+
+<div class="card">
+    <h3>Waste Type Breakdown</h3>
+    <p>This feature would display a chart of your waste by type.</p>
+    <div style="background-color: #f0f0f0; padding: 20px; text-align: center;">
+        Chart Visualization Placeholder
+    </div>
+    <p class="note">For a real implementation, you could use Chart.js or another JavaScript library to create visualizations of the waste data.</p>
+</div>
+
+<div class="card">
+    <h3>Community Stats</h3>
+    <p>Total Waste Collected: {{ total_waste }} kg</p>
+    <p>Total Reports Submitted: {{ total_reports }}</p>
+</div>
+
+<a href="/dashboard?user_id={{ user_id }}" class="btn">Back to Dashboard</a>
+{% endblock %}

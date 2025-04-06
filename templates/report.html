@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Report Waste</h2>
+    <form action="/report" method="post">
+        <div class="form-group">
+            <label for="user_id">User ID (optional):</label>
+            <input type="text" id="user_id" name="user_id" value="default_user">
+        </div>
+        
+        <div class="form-group">
+            <label for="waste_type">Waste Type:</label>
+            <select id="waste_type" name="waste_type" required>
+                <option value="">-- Select Type --</option>
+                <option value="Plastic">Plastic</option>
+                <option value="Paper">Paper</option>
+                <option value="Glass">Glass</option>
+                <option value="Metal">Metal</option>
+                <option value="Organic">Organic</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Hazardous">Hazardous</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="amount">Amount (kg):</label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="location">Collection Location:</label>
+            <input type="text" id="location" name="location" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description (optional):</label>
+            <textarea id="description" name="description" rows="3"></textarea>
+        </div>
+        
+        <button type="submit" class="btn">Submit Report</button>
+    </form>
+</div>
+{% endblock %}
