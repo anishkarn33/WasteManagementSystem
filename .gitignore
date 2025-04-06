@@ -1,0 +1,16 @@
+# Ignore database file
+instance/waste_management.db
+
+# Ignore user-generated data
+data/*.json
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore editor settings (optional)
+.vscode/
+
+# Ignore env files (for secrets like keys)
+.env
+
